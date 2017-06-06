@@ -1,0 +1,15 @@
+//Programação para controlar a casa via HTML.
+
+//Projeto feito com Arduino UNO + Ethernet Shield.
+//O projeto contará com 8 saídas digitais controladas por sinais HIGH e LOW.
+//3 saídas PWM.
+//2 sensores de movimento.
+//1 sensor LDR.
+
+//Possível interface bluetooth.
+//Possível multiplicador de IO digitais.
+//Possível interface NFC.
+//Possível interface IR.
+
+//Futura integração de LEDs endereçáveis.
+//Futuros sensores de temperatura e umidade.
