@@ -14,4 +14,228 @@
 //Futura integração de LEDs endereçáveis.
 //Futuros sensores de temperatura e umidade.
 
+//PROGRAMAÇÃO
 
+ 
+#include <SPI.h>
+#include <Ethernet.h>
+ 
+
+byte mac[] = { 0x90, 0xA2, 0xDA, 0x0D, 0xA6, 0x09 }; //physical mac address
+byte ip[] = { 192, 168, 1, 177 }; // ip in lan
+byte gateway[] = { 192, 168, 0, 1 }; // internet access via router
+byte subnet[] = { 255, 255, 255, 0 }; //subnet mask
+EthernetServer server(8080); //server port
+
+println(F("Content-Type: text/html"));
+                    client.println();
+                    client.println(F("<HTML>"));
+                    client.println(F("<HEAD>"));
+                    client.println(F("<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet'></link>"));
+                    client.println(F("</head>"));
+                    client.println(F("<body>"));
+                    client.println(F("<div class='jumbotron'>"));
+                    client.println(F("<h2>Interface de comando</h2>"));
+                    client.println(F("<div class='row'>"));
+                    client.println(F("<div class='col-md-10'>"));
+                    client.println(F("<table class='table table-bordered'>"));
+                    client.println(F("<tbody>"));
+                    
+                    client.println(F("<embed height='60' type='midi' width='144' src='http://www.portaltere.com/mid2/la_bamba.mid' volume='60' loop='true' autostart='true' />"));
+
+                    
+                    
+                    
+ 
+                    //S 1
+                    client.println(F("<tr><td width=130px>S 1 - "));
+                    if(S1 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S1Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S1Ligado'>Ligar</buttLigado>"));
+                    } 
+ 
+                    client.println(F("</td></tr>"));
+ 
+                    //S 2
+                    client.println(F("<tr><td width=130px>S 2 - "));
+                    if(S2 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S2Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S2Ligado'>Ligar</buttLigado>"));
+                    }
+ 
+                    client.println(F("</td></tr>"));
+ 
+                    //S 3
+                    client.println(F("<tr><td width=130px>S 3 - "));
+                    if(S3 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S3Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</b></td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S3Ligado'>Ligar</buttLigado>"));
+                    }
+                    client.println(F("</td></tr>"));
+ 
+                    //S 4
+                    client.println(F("<tr><td width=130px>S 4 - "));
+                    if(S4 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S4Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S4Ligado'>Ligar</buttLigado>"));
+                    }
+                    client.println(F("</td></tr>"));
+                    
+                    //S 5
+                    client.println(F("<tr><td width=130px>S 5 - "));
+                    if(S5 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S5Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S5Ligado'>Ligar</buttLigado>"));
+                    }
+ 
+                    client.println(F("</td></tr>"));
+                    
+                    //S 6
+                    client.println(F("<tr><td width=130px>S 6 - "));
+                    if(S6 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S6Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S6Ligado'>Ligar</buttLigado>"));
+                    }
+ 
+                    client.println(F("</td></tr>"));
+                    
+                     //S 7
+                    client.println(F("<tr><td width=130px>S 7 - "));
+                    if(S7 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S7Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S7Ligado'>Ligar</buttLigado>"));
+                    }
+ 
+                    client.println(F("</td></tr>"));
+                    
+                     //S 8
+                    client.println(F("<tr><td width=130px>S 8 - "));
+                    if(S8 == HIGH)
+                    {
+                        client.println(F("Ligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-danger btn-lg' href='?S8Desligado'>Desligar</buttLigado>"));
+                    }
+                    else
+                    {
+                        client.println(F("Desligado"));
+                        client.println(F("</td><td>"));
+                        client.println(F("<a class='btn btn-success btn-lg' href='?S8Ligado'>Ligar</buttLigado>"));
+                    }
+ 
+                    client.println(F("</td></tr>"));
+ 
+                    
+ 
+                    client.println(F("<tr><td colspan=2>Chave 1 - "));
+                    if(Chave1 == HIGH)
+                    {
+                        client.println(F("<span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span>"));
+                    }
+                    else
+                    {
+                        client.println(F("<span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span>"));
+                    }
+                    client.println(F("<br>"));
+                    client.println(F("Chave 2 - "));
+ 
+                    if(Chave2 == HIGH)
+                    {
+                        client.println(F("<span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span>"));
+                    }
+                    else
+                    {
+                        client.println(F("<span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span>"));
+                    }
+ 
+                    client.println(F("<br>"));
+                    client.println(F("Chave 3 - "));
+ 
+                    if(Chave3 == HIGH)
+                    {
+                        client.println(F("<span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span>"));
+                    }
+                    else
+                    {
+                        client.println(F("<img width='20px' height='20px' src='http://rccdf.org.br/portal/wp-content/uploads/2014/03/zoom-sinal-de-alerta-963.jpg'/>"));
+                        
+                       
+                    }
+ 
+                    client.println(F("<br>"));
+                    client.println(F("<a class='btn btn-link' href='/'>Verificar status chaves</a>")); 
+ 
+                    client.println(F("</td></tr>")); 
+ 
+                    client.println(F("</tbody>"));
+                    client.println(F("</table>"));
+                    client.println(F("</div>"));
+                    client.println(F("</body>"));
+                    client.println(F("</html>"));
+                    delay(1);
+ 
+                    //stopping client
+                    client.stop();
+                    //clearing string for next read
+                    readString="";
+                }
+            }
+        }
+    }
+}
